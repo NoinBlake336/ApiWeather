@@ -1,4 +1,4 @@
-import {requestCity, requestTime} from  "./request.js";
+import {requestCity} from  "./request.js";
 import { renderCity } from "./renderHTML.js";
 import { InitCity } from "./initCity.js";
 import { ShowHistory } from "./WorldHistory.js";

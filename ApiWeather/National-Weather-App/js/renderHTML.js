@@ -4,38 +4,18 @@ import { convertCelsius } from "./main.js"
 export const renderCity = (city, data )=>{
 
     const imgWeather = city.weather[0].icon;
-    // HORA
-    const timeCity = data.datetime.split(" ")[1].split(":");
     const containerHistory = document.querySelector(".containerHistory");
-    timeCity.splice(2);
 
     // DIA
     let img;
-    const week = ["Enero","Febrero", "Marzo","Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Nomviembre", "Diciembre"];
-    const day = ["Lunes", "Martes", "Miercoles", "Jueves","Viernes", "Sabado", "Domingo"];
-    const dayCity = data.datetime.split(" ")[0].split("-")
-
-    let newdayCity=dayCity.map(items => Number(items));
-
-    if(timeCity[0] >= "06" && timeCity[0] <= "20"  ){
-        img="01d";
-        
-        
-    }
-
-    if(timeCity[0] >= "20" || timeCity <= "06"){
-        img="01n";
-    }
-
+    
     
     return `
     <div class="titulo-ciudad">
         <h1 class="title">${city.name}</h1>
-        <p class="mes">${day[newdayCity[2]]}, ${newdayCity[2]} de ${week[newdayCity[1]-1]} de ${newdayCity[0]}  </p>
     </div>
     <div class="horario-ciudad">
         <div class="contenedor-hora">
-            <p class="hora">${timeCity.join(":")} <span><img class="isDayCity" src="./src/${img}.png"></img></span></p>
         </div>
     </div>
     <div class="clima">

@@ -12,12 +12,3 @@ export const requestCity = async(city)=>{
     return data;
 };
 
-export const requestTime = async(city)=>{
-    const URL = `https://timezone.abstractapi.com/v1/current_time/?`;
-    const query = `api_key=${keyTime}&location=${city}`;
-    const response = await fetch(`${URL}${query}`);
-    const data = response.json();
-    return data 
-
-}
-
