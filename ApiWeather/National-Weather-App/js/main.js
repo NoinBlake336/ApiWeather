@@ -22,10 +22,10 @@ export const convertCelsius = kelvin=>{
 }
 
 // Funcion para la logica de renderizar
-export const renderCitiesList = (citiesList, fetch, time) =>{
+export const renderCitiesList = (citiesList, fetch) =>{
     
     let index = citiesList.indexOf(fetch);
-    card.innerHTML = renderCity(citiesList[index], time);
+    card.innerHTML = renderCity(citiesList[index]);
 
 }
 
@@ -62,8 +62,8 @@ const SearchCity = async  e=>{
     }
     // Pasamos valor input a nuestra funcion requesCity
     const fetchedCity = await requestCity(searchedCity);
-    // Sacamos el valor de los horarios 
-    const fetchTime = await requestTime(searchedCity);
+
+    
     
     // NO EXISTE: Msg si no existe la ciudad
     if(fetchedCity.message === "city not found"){
@@ -81,7 +81,7 @@ const SearchCity = async  e=>{
         return a;
     },[]);
 
-    renderCitiesList(newListCity, fetchedCity,fetchTime);
+    renderCitiesList(newListCity, fetchedCity);
     saveLocalStorage(newListCity);
     form.reset();
     
